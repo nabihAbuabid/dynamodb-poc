@@ -8,7 +8,7 @@ public interface DynamoDBUpdateClientIF<T> {
 
     void update(T item);
 
-    void getAndpdateAll(DynamoDBQueryClientIF dbQueryClient, Map<String,
+    List<T> getAndpdateAll(DynamoDBQueryClientIF dbQueryClient, Map<String,
             DynamoDBQueryClient.Operator> operationMap,
                         Map<String, Object> newValMap, T item);
 }

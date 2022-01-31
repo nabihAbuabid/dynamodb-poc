@@ -82,7 +82,7 @@ public class Application {
             operatorMap.put("active", DynamoDBQueryClient.Operator.EQUAL);
             UpdatedItem updatedItem2 = new UpdatedItem();
             updatedItem2.setOrgId("org1");
-            updatedItem2.setActive(1);
+            updatedItem2.setActive(0);
 
             List<UpdatedItem> items = dynamoDBQueryClient.getAll(operatorMap, updatedItem2);
             System.out.println("retrieved " + items.size() + " items");
@@ -92,11 +92,11 @@ public class Application {
             operatorMap.put("active", DynamoDBQueryClient.Operator.EQUAL);
             UpdatedItem updatedItem2 = new UpdatedItem();
             updatedItem2.setOrgId("org1");
-            updatedItem2.setActive(2);
+            updatedItem2.setActive(1);
 
             Map<String, Object> newValMap = new HashMap<>();
-            newValMap.put("active", 1);
-            newValMap.put("action", "D");
+            newValMap.put("active", 0);
+            newValMap.put("action", "C");
             dynamoDBQUpdateClient.getAndpdateAll(dynamoDBQueryClient,operatorMap,  newValMap, updatedItem2);
         }
 

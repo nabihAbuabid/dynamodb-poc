@@ -28,7 +28,7 @@ public class DynamoDBQUpdateClient<T> extends DynamoDBClient<T> implements Dynam
         mapper.save(item);
     }
 
-    public void getAndpdateAll(DynamoDBQueryClientIF dbQueryClient, Map<String,
+    public List<T> getAndpdateAll(DynamoDBQueryClientIF dbQueryClient, Map<String,
                                 DynamoDBQueryClient.Operator> operationMap,
                                Map<String, Object> newValMap, T item) {
 
@@ -61,6 +61,7 @@ public class DynamoDBQUpdateClient<T> extends DynamoDBClient<T> implements Dynam
         });
 
         update(updatedItems);
+        return items;
     }
 
 }
